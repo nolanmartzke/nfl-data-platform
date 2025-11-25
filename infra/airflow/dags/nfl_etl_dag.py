@@ -11,5 +11,5 @@ with DAG("nfl_etl",
     
     ingest = BashOperator(
         task_id="fetch_nfl_data",
-        bash_command="python /opt/airflow/dags/scripts/fetch_data.py"
+        bash_command="python /opt/airflow/src/ingestion/fetch_nfl_stats.py"
     )
