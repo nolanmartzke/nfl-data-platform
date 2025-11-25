@@ -13,3 +13,15 @@ with DAG("nfl_etl",
         task_id="fetch_nfl_data",
         bash_command="python /opt/airflow/src/ingestion/fetch_nfl_stats.py"
     )
+
+    transform = BashOperator(
+        task_id="clean_nfl_data",
+        bash_command="python /opt/airflow/src/transformations/clean_nfl_data.py"
+    )
+
+    load = BashOperator(
+        task_id="load_to_postgres",
+        bash_command="python /opt/airflow/src/loading/load_to_postgres.py"
+    )
+
+    ingest >> transform >> load
