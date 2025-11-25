@@ -4,7 +4,7 @@ import psycopg2
 def load():
     conn = psycopg2.connect(
         host="postgres",
-        dbname="nfl",
+        dbname="airflow",
         user="airflow",
         password="airflow",
         port=5432
@@ -13,13 +13,25 @@ def load():
 
     df = pd.read_csv("/opt/airflow/data/processed/nfl_clean.csv")
 
+    cur.execute(
+            """
+            CREATE TABLE IF NOT EXISTS teams (
+                id INT PRIMARY KEY,
+                name TEXT,
+                location TEXT,
+                abbreviation TEXT
+            )
+            """
+        )
+
     for _, row in df.iterrows():
         cur.execute(
             """
-            INSERT INTO nfl_stats (player, team, passing_yards)
-            VALUES (%s, %s, %s)
+            INSERT INTO teams (id, name, location, abbreviation)
+            VALUES (%s, %s, %s, %s)
+            ON CONFLICT (id) DO NOTHING
             """,
-            (row['player'], row['team'], row['passing_yards'])
+            (row['id'], row['name'], row['location'], row['abbreviation'])
         )
 
     conn.commit()

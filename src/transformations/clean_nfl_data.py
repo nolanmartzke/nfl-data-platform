@@ -1,11 +1,11 @@
 import pandas as pd
 from pathlib import Path
 
-RAW_PATH = Path("/opt/airflow/data/raw/nfl_raw.json")
-PROCESSED_PATH = Path("/opt/airflow/data/process/nfl_clean.csv")
+RAW_PATH = Path("/opt/airflow/data/raw/nfl_raw.csv")
+PROCESSED_PATH = Path("/opt/airflow/data/processed/nfl_clean.csv")
 
 def clean():
-    df = pd.read_json(RAW_PATH)
+    df = pd.read_csv(RAW_PATH)
 
     df.dropna(inplace=True)
     df.columns = df.columns.str.lower().str.replace(' ', '_')
