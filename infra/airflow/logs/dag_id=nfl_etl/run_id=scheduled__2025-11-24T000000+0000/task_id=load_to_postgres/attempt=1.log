@@ -1,0 +1,202 @@
+[2025-11-25T21:52:53.774+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T21:52:53.805+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:52:53.815+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:52:53.818+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T21:52:53.832+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): load_to_postgres> on 2025-11-24 00:00:00+00:00
+[2025-11-25T21:52:53.839+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=251) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T21:52:53.841+0000] {standard_task_runner.py:63} INFO - Started process 252 to run task
+[2025-11-25T21:52:53.839+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'load_to_postgres', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmphnid9nrj']
+[2025-11-25T21:52:53.842+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask load_to_postgres
+[2025-11-25T21:52:53.857+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T21:52:53.899+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [running]> on host 16825b3cc700
+[2025-11-25T21:52:53.978+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T21:52:53.979+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T21:52:53.991+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T21:52:53.992+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/loading/load_to_postgres.py']
+[2025-11-25T21:52:54.000+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T21:52:54.898+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-11-25T21:52:54.899+0000] {subprocess.py:93} INFO -   File "/opt/***/src/loading/load_to_postgres.py", line 30, in <module>
+[2025-11-25T21:52:54.902+0000] {subprocess.py:93} INFO -     load()
+[2025-11-25T21:52:54.902+0000] {subprocess.py:93} INFO -   File "/opt/***/src/loading/load_to_postgres.py", line 17, in load
+[2025-11-25T21:52:54.904+0000] {subprocess.py:93} INFO -     cur.execute(
+[2025-11-25T21:52:54.905+0000] {subprocess.py:93} INFO - psycopg2.errors.UndefinedTable: relation "nfl_stats" does not exist
+[2025-11-25T21:52:54.906+0000] {subprocess.py:93} INFO - LINE 2:             INSERT INTO nfl_stats (id, name, location, abbre...
+[2025-11-25T21:52:54.906+0000] {subprocess.py:93} INFO -                                 ^
+[2025-11-25T21:52:54.906+0000] {subprocess.py:93} INFO - 
+[2025-11-25T21:52:54.987+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-11-25T21:52:54.988+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T21:52:54.997+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-25T21:52:55.001+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=nfl_etl, task_id=load_to_postgres, execution_date=20251124T000000, start_date=20251125T215253, end_date=20251125T215255
+[2025-11-25T21:52:55.012+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 6 for task load_to_postgres (Bash command failed. The command returned a non-zero exit code 1.; 252)
+[2025-11-25T21:52:55.060+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-11-25T21:52:55.076+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T21:52:55.078+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T21:57:46.938+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T21:57:46.970+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:57:46.979+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:57:46.980+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T21:57:46.994+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): load_to_postgres> on 2025-11-24 00:00:00+00:00
+[2025-11-25T21:57:47.000+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=261) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T21:57:47.002+0000] {standard_task_runner.py:63} INFO - Started process 262 to run task
+[2025-11-25T21:57:47.000+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'load_to_postgres', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmpugwq5xf0']
+[2025-11-25T21:57:47.002+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask load_to_postgres
+[2025-11-25T21:57:47.023+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T21:57:47.069+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [running]> on host fe422a050ca0
+[2025-11-25T21:57:47.159+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T21:57:47.160+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T21:57:47.175+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T21:57:47.176+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/loading/load_to_postgres.py']
+[2025-11-25T21:57:47.182+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T21:57:48.116+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-11-25T21:57:48.117+0000] {subprocess.py:93} INFO -   File "/opt/***/src/loading/load_to_postgres.py", line 30, in <module>
+[2025-11-25T21:57:48.119+0000] {subprocess.py:93} INFO -     load()
+[2025-11-25T21:57:48.120+0000] {subprocess.py:93} INFO -   File "/opt/***/src/loading/load_to_postgres.py", line 17, in load
+[2025-11-25T21:57:48.122+0000] {subprocess.py:93} INFO -     cur.execute(
+[2025-11-25T21:57:48.122+0000] {subprocess.py:93} INFO - psycopg2.errors.UndefinedTable: relation "***" does not exist
+[2025-11-25T21:57:48.123+0000] {subprocess.py:93} INFO - LINE 2:             INSERT INTO *** (id, name, location, abbrevi...
+[2025-11-25T21:57:48.123+0000] {subprocess.py:93} INFO -                                 ^
+[2025-11-25T21:57:48.124+0000] {subprocess.py:93} INFO - 
+[2025-11-25T21:57:48.200+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-11-25T21:57:48.201+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T21:57:48.212+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-25T21:57:48.216+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=nfl_etl, task_id=load_to_postgres, execution_date=20251124T000000, start_date=20251125T215746, end_date=20251125T215748
+[2025-11-25T21:57:48.233+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 6 for task load_to_postgres (Bash command failed. The command returned a non-zero exit code 1.; 262)
+[2025-11-25T21:57:48.260+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-11-25T21:57:48.276+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T21:57:48.280+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T22:03:12.535+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T22:03:12.582+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:03:12.590+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:03:12.591+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T22:03:12.602+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): load_to_postgres> on 2025-11-24 00:00:00+00:00
+[2025-11-25T22:03:12.607+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=251) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T22:03:12.608+0000] {standard_task_runner.py:63} INFO - Started process 252 to run task
+[2025-11-25T22:03:12.607+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'load_to_postgres', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmplvdgerun']
+[2025-11-25T22:03:12.609+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask load_to_postgres
+[2025-11-25T22:03:12.623+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T22:03:12.655+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [running]> on host 67abb3264e35
+[2025-11-25T22:03:12.733+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T22:03:12.734+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T22:03:12.745+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T22:03:12.746+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/loading/load_to_postgres.py']
+[2025-11-25T22:03:12.753+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T22:03:13.932+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T22:03:13.935+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T22:03:13.971+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=load_to_postgres, execution_date=20251124T000000, start_date=20251125T220312, end_date=20251125T220313
+[2025-11-25T22:03:14.027+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T22:03:14.048+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T22:03:14.052+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T22:08:44.744+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T22:08:44.780+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:08:44.788+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:08:44.788+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T22:08:44.801+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): load_to_postgres> on 2025-11-24 00:00:00+00:00
+[2025-11-25T22:08:44.807+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=253) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T22:08:44.808+0000] {standard_task_runner.py:63} INFO - Started process 254 to run task
+[2025-11-25T22:08:44.807+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'load_to_postgres', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmp7vgj0tyb']
+[2025-11-25T22:08:44.809+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask load_to_postgres
+[2025-11-25T22:08:44.828+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T22:08:44.867+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [running]> on host 12ebf9115d82
+[2025-11-25T22:08:44.951+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T22:08:44.952+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T22:08:44.967+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T22:08:44.967+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/loading/load_to_postgres.py']
+[2025-11-25T22:08:44.974+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T22:08:45.901+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-11-25T22:08:45.902+0000] {subprocess.py:93} INFO -   File "/opt/***/src/loading/load_to_postgres.py", line 43, in <module>
+[2025-11-25T22:08:45.904+0000] {subprocess.py:93} INFO -     load()
+[2025-11-25T22:08:45.905+0000] {subprocess.py:93} INFO -   File "/opt/***/src/loading/load_to_postgres.py", line 17, in load
+[2025-11-25T22:08:45.906+0000] {subprocess.py:93} INFO -     cur.execute("TRUNCATE TABLE teams")
+[2025-11-25T22:08:45.907+0000] {subprocess.py:93} INFO - psycopg2.errors.UndefinedTable: relation "teams" does not exist
+[2025-11-25T22:08:45.907+0000] {subprocess.py:93} INFO - 
+[2025-11-25T22:08:45.994+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-11-25T22:08:45.996+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T22:08:46.006+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-25T22:08:46.010+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=nfl_etl, task_id=load_to_postgres, execution_date=20251124T000000, start_date=20251125T220844, end_date=20251125T220846
+[2025-11-25T22:08:46.028+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 6 for task load_to_postgres (Bash command failed. The command returned a non-zero exit code 1.; 254)
+[2025-11-25T22:08:46.067+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-11-25T22:08:46.083+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T22:08:46.086+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T22:13:07.917+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T22:13:07.945+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:13:07.954+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:13:07.955+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T22:13:07.970+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): load_to_postgres> on 2025-11-24 00:00:00+00:00
+[2025-11-25T22:13:07.977+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=251) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T22:13:07.976+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'load_to_postgres', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmp9xnir22o']
+[2025-11-25T22:13:07.978+0000] {standard_task_runner.py:63} INFO - Started process 253 to run task
+[2025-11-25T22:13:07.978+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask load_to_postgres
+[2025-11-25T22:13:07.993+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T22:13:08.032+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [running]> on host 4b71973c0bbe
+[2025-11-25T22:13:08.109+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T22:13:08.110+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T22:13:08.123+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T22:13:08.124+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/loading/load_to_postgres.py']
+[2025-11-25T22:13:08.131+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T22:13:09.176+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T22:13:09.177+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T22:13:09.205+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=load_to_postgres, execution_date=20251124T000000, start_date=20251125T221307, end_date=20251125T221309
+[2025-11-25T22:13:09.237+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T22:13:09.253+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T22:13:09.258+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T22:16:00.348+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T22:16:00.382+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:16:00.395+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:16:00.396+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T22:16:00.409+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): load_to_postgres> on 2025-11-24 00:00:00+00:00
+[2025-11-25T22:16:00.415+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=242) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T22:16:00.416+0000] {standard_task_runner.py:63} INFO - Started process 243 to run task
+[2025-11-25T22:16:00.416+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'load_to_postgres', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmpqjqgbm9s']
+[2025-11-25T22:16:00.418+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask load_to_postgres
+[2025-11-25T22:16:00.434+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T22:16:00.473+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.load_to_postgres scheduled__2025-11-24T00:00:00+00:00 [running]> on host 426f1414dfeb
+[2025-11-25T22:16:00.563+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='load_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T22:16:00.563+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T22:16:00.578+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T22:16:00.579+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/loading/load_to_postgres.py']
+[2025-11-25T22:16:00.586+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T22:16:01.588+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T22:16:01.589+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T22:16:01.614+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=load_to_postgres, execution_date=20251124T000000, start_date=20251125T221600, end_date=20251125T221601
+[2025-11-25T22:16:01.635+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T22:16:01.651+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T22:16:01.654+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

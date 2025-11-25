@@ -1,0 +1,192 @@
+[2025-11-25T18:44:54.064+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T18:44:54.096+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T18:44:54.104+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T18:44:54.104+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T18:44:54.119+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): fetch_nfl_data> on 2025-11-24 00:00:00+00:00
+[2025-11-25T18:44:54.124+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=207) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T18:44:54.125+0000] {standard_task_runner.py:63} INFO - Started process 210 to run task
+[2025-11-25T18:44:54.124+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'fetch_nfl_data', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmpsjy1481i']
+[2025-11-25T18:44:54.127+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask fetch_nfl_data
+[2025-11-25T18:44:54.141+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T18:44:54.182+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [running]> on host a3e9267d51e1
+[2025-11-25T18:44:54.295+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='fetch_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T18:44:54.296+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T18:44:54.329+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T18:44:54.330+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/ingestion/fetch_nfl_stats.py']
+[2025-11-25T18:44:54.336+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T18:44:57.275+0000] {subprocess.py:93} INFO - /opt/***/src/ingestion/fetch_nfl_stats.py:20: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+[2025-11-25T18:44:57.276+0000] {subprocess.py:93} INFO -   "created_at": datetime.utcnow()
+[2025-11-25T18:45:02.402+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T18:45:02.403+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T18:45:02.433+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=fetch_nfl_data, execution_date=20251124T000000, start_date=20251125T184454, end_date=20251125T184502
+[2025-11-25T18:45:02.460+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T18:45:02.482+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T18:45:02.485+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T21:32:47.888+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T21:32:47.918+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:32:47.926+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:32:47.927+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T21:32:47.939+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): fetch_nfl_data> on 2025-11-24 00:00:00+00:00
+[2025-11-25T21:32:47.946+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=207) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T21:32:47.945+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'fetch_nfl_data', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmp_r19t7x7']
+[2025-11-25T21:32:47.948+0000] {standard_task_runner.py:63} INFO - Started process 208 to run task
+[2025-11-25T21:32:47.948+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask fetch_nfl_data
+[2025-11-25T21:32:47.965+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T21:32:48.004+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [running]> on host 494e40ca29ec
+[2025-11-25T21:32:48.100+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='fetch_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T21:32:48.102+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T21:32:48.144+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T21:32:48.145+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/ingestion/fetch_nfl_stats.py']
+[2025-11-25T21:32:48.153+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T21:32:52.355+0000] {subprocess.py:93} INFO - /opt/***/src/ingestion/fetch_nfl_stats.py:20: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+[2025-11-25T21:32:52.357+0000] {subprocess.py:93} INFO -   "created_at": datetime.utcnow().isoformat()
+[2025-11-25T21:32:57.384+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T21:32:57.385+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T21:32:57.407+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=fetch_nfl_data, execution_date=20251124T000000, start_date=20251125T213247, end_date=20251125T213257
+[2025-11-25T21:32:57.461+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T21:32:57.488+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T21:32:57.491+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T21:52:42.547+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T21:52:42.578+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:52:42.586+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:52:42.586+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T21:52:42.601+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): fetch_nfl_data> on 2025-11-24 00:00:00+00:00
+[2025-11-25T21:52:42.608+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=202) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T21:52:42.609+0000] {standard_task_runner.py:63} INFO - Started process 203 to run task
+[2025-11-25T21:52:42.608+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'fetch_nfl_data', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmpqjdu1f7n']
+[2025-11-25T21:52:42.610+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask fetch_nfl_data
+[2025-11-25T21:52:42.625+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T21:52:42.663+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [running]> on host 16825b3cc700
+[2025-11-25T21:52:42.748+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='fetch_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T21:52:42.749+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T21:52:42.787+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T21:52:42.789+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/ingestion/fetch_nfl_stats.py']
+[2025-11-25T21:52:42.796+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T21:52:45.902+0000] {subprocess.py:93} INFO - /opt/***/src/ingestion/fetch_nfl_stats.py:23: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+[2025-11-25T21:52:45.903+0000] {subprocess.py:93} INFO -   "created_at": datetime.utcnow().isoformat()
+[2025-11-25T21:52:50.693+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T21:52:50.694+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T21:52:50.720+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=fetch_nfl_data, execution_date=20251124T000000, start_date=20251125T215242, end_date=20251125T215250
+[2025-11-25T21:52:50.754+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T21:52:50.776+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T21:52:50.779+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T21:57:35.659+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T21:57:35.692+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:57:35.700+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T21:57:35.700+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T21:57:35.714+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): fetch_nfl_data> on 2025-11-24 00:00:00+00:00
+[2025-11-25T21:57:35.721+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=212) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T21:57:35.722+0000] {standard_task_runner.py:63} INFO - Started process 213 to run task
+[2025-11-25T21:57:35.721+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'fetch_nfl_data', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmp09g1woqc']
+[2025-11-25T21:57:35.723+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask fetch_nfl_data
+[2025-11-25T21:57:35.740+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T21:57:35.780+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [running]> on host fe422a050ca0
+[2025-11-25T21:57:35.870+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='fetch_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T21:57:35.871+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T21:57:35.902+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T21:57:35.903+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/ingestion/fetch_nfl_stats.py']
+[2025-11-25T21:57:35.910+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T21:57:38.808+0000] {subprocess.py:93} INFO - /opt/***/src/ingestion/fetch_nfl_stats.py:23: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+[2025-11-25T21:57:38.810+0000] {subprocess.py:93} INFO -   "created_at": datetime.utcnow().isoformat()
+[2025-11-25T21:57:43.825+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T21:57:43.827+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T21:57:43.853+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=fetch_nfl_data, execution_date=20251124T000000, start_date=20251125T215735, end_date=20251125T215743
+[2025-11-25T21:57:43.905+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T21:57:43.930+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T21:57:43.932+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T22:03:02.332+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T22:03:02.365+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:03:02.373+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:03:02.374+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T22:03:02.390+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): fetch_nfl_data> on 2025-11-24 00:00:00+00:00
+[2025-11-25T22:03:02.397+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=202) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T22:03:02.396+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'fetch_nfl_data', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmpv3dln6v8']
+[2025-11-25T22:03:02.398+0000] {standard_task_runner.py:63} INFO - Started process 203 to run task
+[2025-11-25T22:03:02.399+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask fetch_nfl_data
+[2025-11-25T22:03:02.415+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T22:03:02.455+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [running]> on host 67abb3264e35
+[2025-11-25T22:03:02.554+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='fetch_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T22:03:02.555+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T22:03:02.592+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T22:03:02.593+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/ingestion/fetch_nfl_stats.py']
+[2025-11-25T22:03:02.601+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T22:03:04.938+0000] {subprocess.py:93} INFO - /opt/***/src/ingestion/fetch_nfl_stats.py:23: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+[2025-11-25T22:03:04.939+0000] {subprocess.py:93} INFO -   "created_at": datetime.utcnow().isoformat()
+[2025-11-25T22:03:09.644+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T22:03:09.645+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T22:03:09.673+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=fetch_nfl_data, execution_date=20251124T000000, start_date=20251125T220302, end_date=20251125T220309
+[2025-11-25T22:03:09.712+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T22:03:09.734+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T22:03:09.737+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T22:08:33.345+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T22:08:33.376+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:08:33.384+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:08:33.384+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T22:08:33.398+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): fetch_nfl_data> on 2025-11-24 00:00:00+00:00
+[2025-11-25T22:08:33.405+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T22:08:33.406+0000] {standard_task_runner.py:63} INFO - Started process 204 to run task
+[2025-11-25T22:08:33.405+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'fetch_nfl_data', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmp_dk8j6hx']
+[2025-11-25T22:08:33.407+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask fetch_nfl_data
+[2025-11-25T22:08:33.423+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T22:08:33.467+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [running]> on host 12ebf9115d82
+[2025-11-25T22:08:33.555+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='fetch_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T22:08:33.556+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T22:08:33.587+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T22:08:33.588+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/ingestion/fetch_nfl_stats.py']
+[2025-11-25T22:08:33.596+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T22:08:36.472+0000] {subprocess.py:93} INFO - /opt/***/src/ingestion/fetch_nfl_stats.py:23: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+[2025-11-25T22:08:36.473+0000] {subprocess.py:93} INFO -   "created_at": datetime.utcnow().isoformat()
+[2025-11-25T22:08:41.458+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T22:08:41.459+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T22:08:41.489+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=fetch_nfl_data, execution_date=20251124T000000, start_date=20251125T220833, end_date=20251125T220841
+[2025-11-25T22:08:41.506+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T22:08:41.527+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T22:08:41.530+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T22:12:56.588+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T22:12:56.619+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:12:56.628+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:12:56.629+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T22:12:56.648+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): fetch_nfl_data> on 2025-11-24 00:00:00+00:00
+[2025-11-25T22:12:56.656+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=207) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T22:12:56.655+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'fetch_nfl_data', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmpenlr7_uj']
+[2025-11-25T22:12:56.658+0000] {standard_task_runner.py:63} INFO - Started process 208 to run task
+[2025-11-25T22:12:56.658+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask fetch_nfl_data
+[2025-11-25T22:12:56.678+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T22:12:56.723+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [running]> on host 4b71973c0bbe
+[2025-11-25T22:12:56.807+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='fetch_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T22:12:56.808+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T22:12:56.844+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T22:12:56.845+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/ingestion/fetch_nfl_stats.py']
+[2025-11-25T22:12:56.853+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T22:13:00.334+0000] {subprocess.py:93} INFO - /opt/***/src/ingestion/fetch_nfl_stats.py:23: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+[2025-11-25T22:13:00.335+0000] {subprocess.py:93} INFO -   "created_at": datetime.utcnow().isoformat()
+[2025-11-25T22:13:05.100+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T22:13:05.102+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T22:13:05.125+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=fetch_nfl_data, execution_date=20251124T000000, start_date=20251125T221256, end_date=20251125T221305
+[2025-11-25T22:13:05.164+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T22:13:05.185+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T22:13:05.189+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-11-25T22:15:50.266+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T22:15:50.295+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:15:50.302+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [queued]>
+[2025-11-25T22:15:50.303+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T22:15:50.315+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): fetch_nfl_data> on 2025-11-24 00:00:00+00:00
+[2025-11-25T22:15:50.321+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T22:15:50.320+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'fetch_nfl_data', 'scheduled__2025-11-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmpoe5tdtq7']
+[2025-11-25T22:15:50.322+0000] {standard_task_runner.py:63} INFO - Started process 204 to run task
+[2025-11-25T22:15:50.323+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask fetch_nfl_data
+[2025-11-25T22:15:50.340+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T22:15:50.383+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.fetch_nfl_data scheduled__2025-11-24T00:00:00+00:00 [running]> on host 426f1414dfeb
+[2025-11-25T22:15:50.488+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='fetch_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-24T00:00:00+00:00'
+[2025-11-25T22:15:50.489+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T22:15:50.526+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T22:15:50.528+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/ingestion/fetch_nfl_stats.py']
+[2025-11-25T22:15:50.536+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T22:15:53.434+0000] {subprocess.py:93} INFO - /opt/***/src/ingestion/fetch_nfl_stats.py:23: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+[2025-11-25T22:15:53.435+0000] {subprocess.py:93} INFO -   "created_at": datetime.utcnow().isoformat()
+[2025-11-25T22:15:58.155+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-11-25T22:15:58.156+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T22:15:58.181+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=nfl_etl, task_id=fetch_nfl_data, execution_date=20251124T000000, start_date=20251125T221550, end_date=20251125T221558
+[2025-11-25T22:15:58.215+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-11-25T22:15:58.246+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T22:15:58.248+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

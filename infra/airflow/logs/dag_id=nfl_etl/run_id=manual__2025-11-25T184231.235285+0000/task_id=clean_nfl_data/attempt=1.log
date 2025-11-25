@@ -1,0 +1,52 @@
+[2025-11-25T18:45:03.158+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-11-25T18:45:03.194+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nfl_etl.clean_nfl_data manual__2025-11-25T18:42:31.235285+00:00 [queued]>
+[2025-11-25T18:45:03.202+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nfl_etl.clean_nfl_data manual__2025-11-25T18:42:31.235285+00:00 [queued]>
+[2025-11-25T18:45:03.203+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 1
+[2025-11-25T18:45:03.214+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): clean_nfl_data> on 2025-11-25 18:42:31.235285+00:00
+[2025-11-25T18:45:03.220+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=231) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-11-25T18:45:03.221+0000] {standard_task_runner.py:63} INFO - Started process 233 to run task
+[2025-11-25T18:45:03.220+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'nfl_etl', 'clean_nfl_data', 'manual__2025-11-25T18:42:31.235285+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/nfl_etl_dag.py', '--cfg-path', '/tmp/tmp1pqaqm_s']
+[2025-11-25T18:45:03.221+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask clean_nfl_data
+[2025-11-25T18:45:03.235+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-11-25T18:45:03.266+0000] {task_command.py:426} INFO - Running <TaskInstance: nfl_etl.clean_nfl_data manual__2025-11-25T18:42:31.235285+00:00 [running]> on host a3e9267d51e1
+[2025-11-25T18:45:03.338+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nfl_etl' AIRFLOW_CTX_TASK_ID='clean_nfl_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-25T18:42:31.235285+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-25T18:42:31.235285+00:00'
+[2025-11-25T18:45:03.339+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-11-25T18:45:03.351+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-25T18:45:03.353+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/src/transformations/clean_nfl_data.py']
+[2025-11-25T18:45:03.361+0000] {subprocess.py:86} INFO - Output:
+[2025-11-25T18:45:04.261+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-11-25T18:45:04.262+0000] {subprocess.py:93} INFO -   File "/opt/***/src/transformations/clean_nfl_data.py", line 20, in <module>
+[2025-11-25T18:45:04.266+0000] {subprocess.py:93} INFO -     clean()
+[2025-11-25T18:45:04.267+0000] {subprocess.py:93} INFO -   File "/opt/***/src/transformations/clean_nfl_data.py", line 8, in clean
+[2025-11-25T18:45:04.269+0000] {subprocess.py:93} INFO -     df = pd.read_json(RAW_PATH)
+[2025-11-25T18:45:04.270+0000] {subprocess.py:93} INFO -          ^^^^^^^^^^^^^^^^^^^^^^
+[2025-11-25T18:45:04.270+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/pandas/io/json/_json.py", line 780, in read_json
+[2025-11-25T18:45:04.271+0000] {subprocess.py:93} INFO -     json_reader = JsonReader(
+[2025-11-25T18:45:04.271+0000] {subprocess.py:93} INFO -                   ^^^^^^^^^^^
+[2025-11-25T18:45:04.272+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/pandas/io/json/_json.py", line 893, in __init__
+[2025-11-25T18:45:04.272+0000] {subprocess.py:93} INFO -     data = self._get_data_from_filepath(filepath_or_buffer)
+[2025-11-25T18:45:04.273+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-11-25T18:45:04.273+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/pandas/io/json/_json.py", line 949, in _get_data_from_filepath
+[2025-11-25T18:45:04.273+0000] {subprocess.py:93} INFO -     raise FileNotFoundError(f"File {filepath_or_buffer} does not exist")
+[2025-11-25T18:45:04.274+0000] {subprocess.py:93} INFO - FileNotFoundError: File /opt/***/data/raw/nfl_raw.json does not exist
+[2025-11-25T18:45:04.334+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-11-25T18:45:04.335+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-11-25T18:45:04.345+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-25T18:45:04.353+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=nfl_etl, task_id=clean_nfl_data, execution_date=20251125T184231, start_date=20251125T184503, end_date=20251125T184504
+[2025-11-25T18:45:04.369+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 4 for task clean_nfl_data (Bash command failed. The command returned a non-zero exit code 1.; 233)
+[2025-11-25T18:45:04.398+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-11-25T18:45:04.417+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-25T18:45:04.423+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
